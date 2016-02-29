@@ -12,8 +12,9 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public bool grounded = false;
 
-    public int health;
+    
     const int MAX_HEALTH = 3;
+    public int health = MAX_HEALTH;
     public bool dead = false;
  
     public string jumpButton = "jump";
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
         health = MAX_HEALTH;
         dead = false;
-        updateAnim();
+        //updateAnim();
     }
 
     // Update is called once per frame
@@ -238,11 +239,17 @@ public class PlayerController : MonoBehaviour
         //    hasAGun = true;
         //    bulletsRemaining = 2;
         //}
-        //triggers when the player is hit by a bullet.
 
-        if (other.gameObject.tag == "Bullet")
+        //triggers when the player is hit by a bullet.
+        if (other.gameObject.CompareTag("Bullet"))
         {
             takeDamage();           
+        }
+
+        //triggers when hit by a bomb.
+        if (other.gameObject.CompareTag("Bomb"))
+        {
+            takeDamage();
         }
 
         //Stage hazards will kill the player instantly, regardless of his health.
@@ -294,7 +301,7 @@ public class PlayerController : MonoBehaviour
         if (health == 0)
         {
             dead = true;
-            anime.SetBool("DED", dead);
+            updateAnim();
         }
     }
 }
