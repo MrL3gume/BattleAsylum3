@@ -50,6 +50,7 @@ namespace s3
                 menu.SetActive(!menu.activeSelf);
                 gameManagerMaster.isMenuOn = !gameManagerMaster.isMenuOn;
                 gameManagerMaster.CallEventMenuToggle();
+               
             }
             else
             {
