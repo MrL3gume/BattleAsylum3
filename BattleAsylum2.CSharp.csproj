@@ -69,6 +69,7 @@
     <Compile Include="Assets\Retro2DTileFactory\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Retro2DTileFactory\Scripts\PlayerFall.cs" />
     <Compile Include="Assets\Retro2DTileFactory\Scripts\WalkbyPlant.cs" />
+    <Compile Include="Assets\Scripts\BombScript.cs" />
     <Compile Include="Assets\Scripts\BulletScript.cs" />
     <Compile Include="Assets\Scripts\CameraController2d.cs" />
     <Compile Include="Assets\Scripts\CameraFOllow.cs" />
@@ -81,7 +82,6 @@
     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Quitter.cs" />
-    <Compile Include="Assets\Scripts\Shooting.cs" />
     <Compile Include="Assets\Scripts\SmoothFollow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
