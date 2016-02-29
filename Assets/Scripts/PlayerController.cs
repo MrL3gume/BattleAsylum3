@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public string jumpButton = "jump";
     public string horizontalControl = "horizontal";
     public string attackButton = "attack";
+    public string layBombButton = "layBomb";
 
     private Transform groundCheck1;
     private Transform groundCheck2;
@@ -27,7 +28,9 @@ public class PlayerController : MonoBehaviour
     private Transform wallCheckBack;
     public AreaEffector2D effector;
     public GameObject bullet;
+    public GameObject bomb;
     public BulletScript bulScript;
+    
 
     public bool facingRight = true;
     private bool jump = false;
@@ -119,7 +122,13 @@ public class PlayerController : MonoBehaviour
             else if(bulletsRemaining == 0)
             {
                 hasAGun = false;
-            }
+            }            
+        }
+
+        //Lay a bomb.
+        if (Input.GetButtonDown(layBombButton))
+        {
+            Instantiate(bomb, rb.position, Quaternion.Euler(0,0,0));
         }
 
         //Triggers the gun animations
@@ -247,7 +256,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //triggers when hit by a bomb.
-        if (other.gameObject.CompareTag("Bomb"))
+        if (other.gameObject.CompareTag("Explosion"))
         {
             takeDamage();
         }
