@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/Map_1.unity
+=======
+- path: Assets/Scenes/Scene1.unity
+>>>>>>> refs/remotes/MrL3gume/master
   isLoaded: 1
   isActive: 1
