@@ -8,13 +8,11 @@ namespace s3
     {
         public delegate void GameManagerEventHandler();
         public event GameManagerEventHandler MenuToggleEvent;
-        public event GameManagerEventHandler InventoryUIToggleEvent;
         public event GameManagerEventHandler RestartLevelEvent;
         public event GameManagerEventHandler GoToMenuSceneEvent;
         public event GameManagerEventHandler GameOverEvent;
 
         public bool isGameOver;
-        public bool isInventoryUIOn;
         public bool isMenuOn;
 
         public void CallEventMenuToggle()
@@ -22,14 +20,6 @@ namespace s3
             if(MenuToggleEvent!=null)
             {
                 MenuToggleEvent();
-            }
-        }
-
-      public void CallEventInventoryUIToggle()
-        {
-            if(InventoryUIToggleEvent!=null)
-            {
-                InventoryUIToggleEvent();
             }
         }
 

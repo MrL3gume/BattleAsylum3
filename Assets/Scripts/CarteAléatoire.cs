@@ -4,12 +4,9 @@ using System.Collections;
 
 public class CarteAléatoire : MonoBehaviour {
 
-    public int levelChoice;
-    
-
     public void LoadScene()
     {
-        Application.LoadLevel(Random.Range(1, 5));
+        Application.LoadLevel(Random.Range(1, 6));
     }
 
 }

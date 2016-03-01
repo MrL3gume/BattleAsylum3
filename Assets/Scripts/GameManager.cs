@@ -34,9 +34,10 @@ public class GameManager : MonoBehaviour {
         }
         //This checks every frame if a player is dead.
         if (p1.isDead() || p2.isDead())
-        {           
+        {
             //Starts a coroutine that waits for 3 seconds before reloading the scene.
-            StartCoroutine(reloadCoroutine());
+            //StartCoroutine(reloadCoroutine());
+            Application.LoadLevel(Random.Range(1, 6));
         }
     }
     
