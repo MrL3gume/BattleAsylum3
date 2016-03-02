@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/Map_2.unity
-=======
-- path: Assets/Scenes/Map_1.unity
->>>>>>> cedriclary-master
+- path: Assets/Scenes/Menu.unity
   isLoaded: 1
   isActive: 1
