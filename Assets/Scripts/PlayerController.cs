@@ -268,6 +268,16 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("Gun"))
+        {
+            hasAGun = true;
+            bulletsRemaining = 2;
+            Destroy(coll.gameObject);
+        }
+    }
+
     //Updates the animator.
     void updateAnim()
     {
