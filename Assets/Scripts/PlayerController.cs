@@ -249,12 +249,6 @@ public class PlayerController : MonoBehaviour
             takeDamage();
         }
 
-        //if (other.gameObject.CompareTag("Gun"))
-        //{
-        //    hasAGun = true;
-        //    bulletsRemaining = 2;
-        //}
-
         //triggers when the player is hit by a bullet.
         if (other.gameObject.CompareTag("Bullet"))
         {
@@ -274,6 +268,7 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
+    //Picking up the gun/bomb is simple.
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.CompareTag("Gun"))
