@@ -5,10 +5,12 @@ public class BombScript : MonoBehaviour {
 
     public float duration;
     public GameObject hitBox;
+
+    public Animator anim;
     // Use this for initialization
     void Start ()
     {
-	
+        //anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -16,16 +18,14 @@ public class BombScript : MonoBehaviour {
     {
         duration -= Time.deltaTime;
         if (duration <= 0)
-        {
-            hitBox.SetActive(true);
-            StartCoroutine(explodeCoroutine());
+        {                      
+            anim.Play("Explosion");
+            Invoke("explode", 0.5f);              
         }
     }
 
-    IEnumerator explodeCoroutine()
+    void explode()
     {
-        yield return new WaitForSeconds(1);
-        hitBox.SetActive(false);
         Destroy(gameObject);
     }
 }

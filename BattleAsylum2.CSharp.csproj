@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\CameraFOllow.cs" />
     <Compile Include="Assets\Scripts\CarteAléatoire.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager_GoToMenuScene.cs" />
     <Compile Include="Assets\Scripts\GameManager_Master.cs" />
     <Compile Include="Assets\Scripts\GameManager_ToggleMenu.cs" />
     <Compile Include="Assets\Scripts\GameManager_TogglePause.cs" />
