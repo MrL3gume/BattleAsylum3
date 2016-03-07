@@ -18,10 +18,7 @@
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.3.2f1</UnityVersion>
     <RootNamespace></RootNamespace>
-<<<<<<< HEAD
-=======
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
->>>>>>> 120df1fe81cad762ec176c4702f39c593ffa3b1f
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -64,15 +61,6 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
-<<<<<<< HEAD
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
-    </Reference>
-=======
->>>>>>> 120df1fe81cad762ec176c4702f39c593ffa3b1f
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Retro2DTileFactory\Scripts\CameraScale.cs" />
@@ -81,19 +69,13 @@
     <Compile Include="Assets\Retro2DTileFactory\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Retro2DTileFactory\Scripts\PlayerFall.cs" />
     <Compile Include="Assets\Retro2DTileFactory\Scripts\WalkbyPlant.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="Assets\Scripts\BombScript.cs" />
->>>>>>> 120df1fe81cad762ec176c4702f39c593ffa3b1f
     <Compile Include="Assets\Scripts\BulletScript.cs" />
     <Compile Include="Assets\Scripts\CameraController2d.cs" />
     <Compile Include="Assets\Scripts\CameraFOllow.cs" />
     <Compile Include="Assets\Scripts\CarteAléatoire.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-<<<<<<< HEAD
     <Compile Include="Assets\Scripts\GameManager_GoToMenuScene.cs" />
-=======
->>>>>>> 120df1fe81cad762ec176c4702f39c593ffa3b1f
     <Compile Include="Assets\Scripts\GameManager_Master.cs" />
     <Compile Include="Assets\Scripts\GameManager_ToggleMenu.cs" />
     <Compile Include="Assets\Scripts\GameManager_TogglePause.cs" />
@@ -101,10 +83,6 @@
     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Quitter.cs" />
-<<<<<<< HEAD
-    <Compile Include="Assets\Scripts\Shooting.cs" />
-=======
->>>>>>> 120df1fe81cad762ec176c4702f39c593ffa3b1f
     <Compile Include="Assets\Scripts\SmoothFollow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
