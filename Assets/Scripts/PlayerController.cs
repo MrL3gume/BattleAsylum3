@@ -153,6 +153,7 @@ public class PlayerController : MonoBehaviour
 
         if (grounded && rb.velocity.y == 0)
         {
+           
             updateAnim();
             rb.velocity = new Vector2(moveHorizontal * maxSpeed, rb.velocity.y);
         }
@@ -163,6 +164,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(jumpForce * jumpSpeed);
             updateAnim();
             jump = false;
+           
         }
         else if (wallJump)
         {
@@ -183,6 +185,7 @@ public class PlayerController : MonoBehaviour
                 updateAnim();
             }
         }
+       
 
         if (moveHorizontal > 0 && !facingRight)
         {
