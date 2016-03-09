@@ -11,14 +11,19 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 10f;
     public float speed;
     public bool grounded = false;
+    public float vertJumpForce = 150f;
+    public float verticalWalljumpForce = 135f;
+    public float horizontalWalljumpForce = 75f;
 
-    public int health;
+
     const int MAX_HEALTH = 3;
+    public int health = MAX_HEALTH;
     public bool dead = false;
  
     public string jumpButton = "jump";
     public string horizontalControl = "horizontal";
     public string attackButton = "attack";
+    public string layBombButton = "layBomb";
 
     private Transform groundCheck1;
     private Transform groundCheck2;
@@ -26,7 +31,9 @@ public class PlayerController : MonoBehaviour
     private Transform wallCheckBack;
     public AreaEffector2D effector;
     public GameObject bullet;
+    public GameObject bomb;
     public BulletScript bulScript;
+    
 
     public bool facingRight = true;
     private bool jump = false;
@@ -56,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
         health = MAX_HEALTH;
         dead = false;
-        updateAnim();
+        //updateAnim();
     }
 
     // Update is called once per frame
@@ -118,7 +125,13 @@ public class PlayerController : MonoBehaviour
             else if(bulletsRemaining == 0)
             {
                 hasAGun = false;
-            }
+            }            
+        }
+
+        //Lay a bomb.
+        if (Input.GetButtonDown(layBombButton))
+        {
+            Instantiate(bomb, rb.position, Quaternion.Euler(0,0,0));
         }
 
         //Triggers the gun animations
@@ -152,22 +165,24 @@ public class PlayerController : MonoBehaviour
 
         if (grounded && rb.velocity.y == 0)
         {
+           
             updateAnim();
             rb.velocity = new Vector2(moveHorizontal * maxSpeed, rb.velocity.y);
         }
 
         if (jump && rb.velocity.y == 0)
         {
-            Vector2 jumpForce = new Vector2(0.0f, 100f);
+            Vector2 jumpForce = new Vector2(0.0f, vertJumpForce);
             rb.AddForce(jumpForce * jumpSpeed);
             updateAnim();
             jump = false;
+           
         }
         else if (wallJump)
         {
             if (facingRight)
             {
-                Vector2 jumpForce = new Vector2(60.0f, 125f);
+                Vector2 jumpForce = new Vector2(horizontalWalljumpForce, verticalWalljumpForce);
                 rb.AddForce(jumpForce * jumpSpeed);
                 wallJump = false;
                 canWallJump = false;
@@ -175,13 +190,14 @@ public class PlayerController : MonoBehaviour
             }
             else if (!facingRight)
             {
-                Vector2 jumpForce = new Vector2(-60.0f, 125f);
+                Vector2 jumpForce = new Vector2(-horizontalWalljumpForce, verticalWalljumpForce);
                 rb.AddForce(jumpForce * jumpSpeed);                
                 wallJump = false;
                 canWallJump = false;
                 updateAnim();
             }
         }
+       
 
         if (moveHorizontal > 0 && !facingRight)
         {
@@ -233,16 +249,16 @@ public class PlayerController : MonoBehaviour
             takeDamage();
         }
 
-        //if (other.gameObject.CompareTag("Gun"))
-        //{
-        //    hasAGun = true;
-        //    bulletsRemaining = 2;
-        //}
         //triggers when the player is hit by a bullet.
-
-        if (other.gameObject.tag == "Bullet")
+        if (other.gameObject.CompareTag("Bullet"))
         {
             takeDamage();           
+        }
+
+        //triggers when hit by a bomb.
+        if (other.gameObject.CompareTag("Explosion"))
+        {
+            takeDamage();
         }
 
         //Stage hazards will kill the player instantly, regardless of his health.
@@ -250,6 +266,17 @@ public class PlayerController : MonoBehaviour
         //{
         //    dead = true;
         //}
+    }
+
+    //Picking up the gun/bomb is simple.
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("Gun"))
+        {
+            hasAGun = true;
+            bulletsRemaining = 2;
+            Destroy(coll.gameObject);
+        }
     }
 
     //Updates the animator.
@@ -294,7 +321,7 @@ public class PlayerController : MonoBehaviour
         if (health == 0)
         {
             dead = true;
-            anime.SetBool("DED", dead);
+            updateAnim();
         }
     }
 }
