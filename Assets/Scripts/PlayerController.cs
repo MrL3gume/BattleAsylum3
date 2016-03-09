@@ -11,8 +11,11 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 10f;
     public float speed;
     public bool grounded = false;
+    public float vertJumpForce = 150f;
+    public float verticalWalljumpForce = 135f;
+    public float horizontalWalljumpForce = 75f;
 
-    
+
     const int MAX_HEALTH = 3;
     public int health = MAX_HEALTH;
     public bool dead = false;
@@ -169,7 +172,7 @@ public class PlayerController : MonoBehaviour
 
         if (jump && rb.velocity.y == 0)
         {
-            Vector2 jumpForce = new Vector2(0.0f, 100f);
+            Vector2 jumpForce = new Vector2(0.0f, vertJumpForce);
             rb.AddForce(jumpForce * jumpSpeed);
             updateAnim();
             jump = false;
@@ -179,7 +182,7 @@ public class PlayerController : MonoBehaviour
         {
             if (facingRight)
             {
-                Vector2 jumpForce = new Vector2(60.0f, 125f);
+                Vector2 jumpForce = new Vector2(horizontalWalljumpForce, verticalWalljumpForce);
                 rb.AddForce(jumpForce * jumpSpeed);
                 wallJump = false;
                 canWallJump = false;
@@ -187,7 +190,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (!facingRight)
             {
-                Vector2 jumpForce = new Vector2(-60.0f, 125f);
+                Vector2 jumpForce = new Vector2(-horizontalWalljumpForce, verticalWalljumpForce);
                 rb.AddForce(jumpForce * jumpSpeed);                
                 wallJump = false;
                 canWallJump = false;
